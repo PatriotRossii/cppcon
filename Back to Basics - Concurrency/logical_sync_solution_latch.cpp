@@ -3,13 +3,13 @@
 #include <iostream>
 
 int main() {
-    std::latch myLatch(2);
+    std::latch myLatch(1);
     std::thread threadB = std::thread([&]() {
-        myLatch.arrive_and_wait();
+        myLatch.wait();
         std::cout << "Hello from B\n";
     });
     std::cout << "Hello from A\n";
-    myLatch.arrive_and_wait();
+    myLatch.arrive();
     threadB.join();
     std::cout << "Hello again from A\n";
 }
