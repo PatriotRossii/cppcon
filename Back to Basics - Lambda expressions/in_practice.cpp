@@ -1,8 +1,17 @@
 #include <vector>
 #include <algorithm>
 
+#include <string>
+
 bool myCallback(int i) {
     return i > 5;
+}
+
+int count_str_starting_with(const std::vector<std::string>& data, char ch) {
+    return std::count_if(data.begin(), data.end(),
+      [ch](const std::string& str) {
+       return !str.empty() && str[0] == ch;
+    });
 }
 
 int main() {
