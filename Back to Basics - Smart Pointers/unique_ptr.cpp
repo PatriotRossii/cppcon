@@ -34,3 +34,6 @@ int main() {
     MyInt* myInt = uniquePtr2.release();
     delete myInt;
 }
+
+// Bad example. We shall not create several unique_ptrs
+// from one resource
